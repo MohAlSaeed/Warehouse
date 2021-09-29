@@ -1,0 +1,388 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="3361991e-ecf0-41c5-9895-2f4cff64c747" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>IDH</ID>
+  <Name>IDH</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="d5210a78-f8ab-4e02-b59d-b7213663b518">
+      <ID>DATE Pr</ID>
+      <Name>DATE Pr</Name>
+      <DimensionID>DATE Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3b8f9634-4a8a-4a22-b767-d52adcc665ea">
+          <AttributeID>ID DATE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bdf6f91c-c4ba-4179-916c-4b929ac58fbe">
+          <AttributeID>Day</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="66f05d32-083c-4a87-8293-1f93fa37448d">
+          <AttributeID>Month</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="d453832a-1a94-40fb-a4bf-47f2d4effc57">
+          <AttributeID>Quarter</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="51d5236f-32e9-4d48-9573-41c0e7c98c35">
+          <AttributeID>Year</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8509fb67-3cd4-441f-8d0e-4835031eb9dd">
+          <AttributeID>Day Of The Week</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="0acdd15a-ea2f-45a6-8747-6752b19d589d">
+          <AttributeID>Month Name</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a41fc4c4-a2de-4d20-9959-8a3a4060c571">
+          <AttributeID>Day Of The Week Name</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="0c30bf54-b398-4c70-964c-b02252861fa1">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="89ff3bc2-b0d1-4997-9718-c26f485419ad">
+      <ID>OWNER DEPARTMENT Pr</ID>
+      <Name>OWNER DEPARTMENT Pr</Name>
+      <DimensionID>OWNER DEPARTMENT Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="58b5c808-8cbf-42b1-b6ad-a65e3fde6788">
+          <AttributeID>ID OWNER DEPARTMENT</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="ece34a58-50f4-4541-9672-08e032d496ff">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="5f36d07e-8c62-43df-8d2e-c6020e6d6dc6">
+      <ID>SR TYPE Pr</ID>
+      <Name>SR TYPE Pr</Name>
+      <DimensionID>SR TYPE Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="7dcea1f6-a14e-453e-ac81-1f931a62ccf8">
+          <AttributeID>ID SR TYPE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="c9eea678-8409-448a-8485-13e88c41d3f2">
+          <AttributeID>SR SHORT CODE</AttributeID>
+          <AttributeHierarchyEnabled>false</AttributeHierarchyEnabled>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="6faa16ad-9f6d-4c3e-b9b9-f22580a096ff">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="5a247c02-44fa-4812-8f11-fe2bcaffbbdf">
+      <ID>DUPLICATE Pr</ID>
+      <Name>DUPLICATE Pr</Name>
+      <DimensionID>DUPLICATE Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="8ffc5a7c-fea7-42d0-acf5-55097240a86d">
+          <AttributeID>ID DUPLICATE</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="b1d852e3-05df-45d3-bbb2-1af0286f9937">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="dd79e6e9-ba0a-4a3a-a8f8-7b28dfa682b9">
+      <ID>STATUS Pr</ID>
+      <Name>STATUS Pr</Name>
+      <DimensionID>STATUS Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="74bfa288-2139-498e-b2bb-44eb5d9e0bbe">
+          <AttributeID>ID STATUS</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="fa81f3d8-0546-49a2-9753-ef46186f7b5e">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="f557a231-cb8d-4d62-8143-18752bc05455">
+      <ID>POLICE Pr</ID>
+      <Name>POLICE Pr</Name>
+      <DimensionID>POLICE Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="a7d9e8ea-d70c-4339-8d1a-938bc8d97f47">
+          <AttributeID>ID POLICE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="1f5c6e2a-a7b1-4ae7-b88c-0ac93bfbebed">
+          <AttributeID>POLICE SECTOR</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="35ab0597-8fb4-4441-a804-7e268bb18713">
+          <AttributeID>Beat</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="bdf259a4-0236-4c11-ada0-6e20c9731bd8">
+          <AttributeID>Precints</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="eea6c4fc-2432-4baa-9dca-c6c4a501a52d">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+    <Dimension dwd:design-time-name="975c2b0c-11f3-4303-920f-dd19129a3e69">
+      <ID>ADDRESS Pr</ID>
+      <Name>ADDRESS Pr</Name>
+      <DimensionID>ADDRESS Pr</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="5dacd8aa-728b-49f8-91a5-7ebdba8d0ab4">
+          <AttributeID>ID ADDRESS</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="41a2abe9-ad51-4b85-ae43-e37a3bd75ad6">
+          <AttributeID>LOCATION</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e2d611ca-7c5f-407e-be14-c4c52063e864">
+          <AttributeID>WARD NUM</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="8402af14-b003-4e87-a7ea-2c88dc601087">
+          <AttributeID>STREET NAME</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="a3316830-7c5e-4027-a6da-91644c8a4d7f">
+          <AttributeID>LATITUDE</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="80151857-6a6c-4999-80b8-b3cff04ad6e2">
+          <AttributeID>LONGITUDE</AttributeID>
+        </Attribute>
+      </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="62501de0-72d9-40e9-9c35-4ffef873292f">
+          <HierarchyID>Hierarchy</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="4e7a0046-9e95-4a66-a52a-f29f73ba9ca8">
+      <ID>SERVICE REQUEST Fact St Pr</ID>
+      <Name>SERVICE REQUEST Fact St Pr</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="67caf02b-fafe-474e-afc2-2cca933f84bc">
+          <ID>COUNT</ID>
+          <Name>COUNT</Name>
+          <Source dwd:design-time-name="7cd51fb0-9fec-41a8-baaa-7d4442ad0284">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="d76dab8d-d7c8-443d-80dd-588aaaf389bb">
+              <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+              <ColumnID>COUNT</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="3436c602-edab-4ecc-9d21-925769f4f0fb">
+          <ID>DURATION</ID>
+          <Name>DURATION</Name>
+          <Source dwd:design-time-name="5f574951-18c3-46c6-955f-f8b9acc30125">
+            <DataType>Integer</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="432847ae-1371-4d96-a128-30bd62c6c90f">
+              <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+              <ColumnID>DURATION</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="86365725-445b-4889-9192-ff16824be319">
+          <ID>SERVICE REQUEST Fact St Pr Count</ID>
+          <Name>SERVICE REQUEST Fact St Pr Count</Name>
+          <AggregateFunction>Count</AggregateFunction>
+          <Source dwd:design-time-name="f81ee241-0336-4eb8-8001-88fe30685340">
+            <DataType>Integer</DataType>
+            <DataSize>4</DataSize>
+            <Source xsi:type="RowBinding" dwd:design-time-name="62101bd5-4b91-4ad1-b85b-f8f600e7298e">
+              <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="44f4b1e3-611e-47f8-b4e2-02d663f7d182">
+          <CubeDimensionID>DATE Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="564061be-9a7d-4bbd-9d5d-a86b6f0b1866">
+              <AttributeID>ID DATE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="dba5fc5a-f951-4d3c-bb4b-ee9201867ae6">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="89bdf041-eb49-4509-8007-e3af40d099ed">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_DATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="429ec469-7625-4ec7-a244-2247d81c116a">
+          <CubeDimensionID>OWNER DEPARTMENT Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="bc622e46-d327-4a04-8347-9825cfe51bfb">
+              <AttributeID>ID OWNER DEPARTMENT</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="f4552d1d-240f-46c6-987a-faa0373c0525">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f901b938-65e9-489c-863b-b657c3aba125">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_OWNER_DEPARTMENT</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e9ba0624-b4e0-4e2a-98b0-b0e76eba6507">
+          <CubeDimensionID>SR TYPE Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="187c3e24-116c-4619-92be-fb7836b87013">
+              <AttributeID>ID SR TYPE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8901f5d6-8fe4-4add-a35f-52cc55eaf2f4">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7783f186-f9b3-4128-8bb6-2c06c75de0cf">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_SR_TYPE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="8856fda1-2bba-4686-8245-82d026045f82">
+          <CubeDimensionID>DUPLICATE Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d5a6030c-3a2f-417f-bf53-9f34bdb8a7e3">
+              <AttributeID>ID DUPLICATE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="456b5bca-2568-44e8-8052-eed8c604d156">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f6f98085-5c3f-438e-a2ab-6e7cfc23218a">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_DUPLICATE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="0dd2cfc7-a62e-4bd0-bad4-d63bc7798fd8">
+          <CubeDimensionID>STATUS Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="2ee2fcdf-25d7-41f4-95d8-04a6ba6fe46e">
+              <AttributeID>ID STATUS</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0c3a2e44-3a69-4cca-886c-bce772173604">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="f72b8918-6f5f-4d87-83f2-2ffa822323c0">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_STATUS</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="195ed7fb-3e9e-48d4-b9a3-bf2204540855">
+          <CubeDimensionID>POLICE Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="42656dd8-f7c5-4412-b69f-898df723ce68">
+              <AttributeID>ID POLICE</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="b98c673c-99b5-4cf4-93e1-a527c69a5f5e">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="1c79cfa0-1956-4f14-904a-060238d95426">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_POLICE</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="d546b270-25d0-4954-8c98-07f69448d26d">
+          <CubeDimensionID>ADDRESS Pr</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="ec17f51d-7f7c-4719-89df-ee97e5c9b402">
+              <AttributeID>ID ADDRESS</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="d413df65-2946-4217-9ce6-ab67891fbb18">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="89fd9dfa-4f46-4e82-a461-f5e1dbec842b">
+                    <TableID>_x0033_11_prod_SERVICE_REQUEST_FactSt_pr</TableID>
+                    <ColumnID>ID_LOCATION</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+      <Partitions />
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="c358d2b4-9375-4bea-b95f-77cd2d8c23fd">
+    <DataSourceViewID>IDH</DataSourceViewID>
+  </Source>
+</Cube>

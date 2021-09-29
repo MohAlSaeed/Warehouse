@@ -1,0 +1,2608 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2021 9:09:22 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BE2VHDL"
+  DTS:CreatorName="DESKTOP-BE2VHDL\MT"
+  DTS:DTSID="{11E73D32-A8E6-48E1-A764-8AA5B9DDC1B4}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{66F44532-924C-4955-8EDB-0ACA025BEF73}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.23.IDH.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{CE819069-F1C4-4F11-871A-C465B9435893}"
+      DTS:ObjectName="192.168.1.23.IDH.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.1.23;User ID=SA;Initial Catalog=IDH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{7DDDFF6E-3C44-4151-AFCC-669E7C0368D0}"
+      DTS:ObjectName="192.168.1.23.IDH.SA 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.1.23;User ID=SA;Initial Catalog=IDH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6cYJVuZEskiTIh1Y7kQtHAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADVpW6oBDoXD0Ganph5LCnSE7Z8mGC0msHd4iWtI0TxRAAAAAAOgAAAAAIAACAAAACr0p62eGXXyfttM8iefh0Ktn/udpUc+21EVvBiDLfoVSAAAADAzdlcQKuvOwug814WGBhWYahdvmlxxyd1FCw5tZiSJkAAAACff5yowViBAWnAaBNrqbNmO1Rza2M+bpHYquJ9YwQ68DpN8b1BeS1EQWnaHchtn15A7BLJxw97Ff3MR4VMBrn2</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Sequence Container"
+      DTS:CreationName="STOCK:SEQUENCE"
+      DTS:Description="Sequence Container"
+      DTS:DTSID="{FFD53D99-1712-45A4-B156-50B50DAB1B00}"
+      DTS:ExecutableType="STOCK:SEQUENCE"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Sequence Container">
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into address prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{ED39FC37-8123-4B74-89EE-21F91FBB590E}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into address prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into address prod\load data from address dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from address dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[ADDRESS_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into address prod\load data from address dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[WARD_NUM]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[WARD_NUM]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[WARD_NUM]"
+                          name="WARD_NUM"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[ZIP_CODE]"
+                          name="ZIP_CODE"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[STREET_NUMBER]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NUMBER]"
+                          name="STREET_NUMBER"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[STREET_NAME]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NAME]"
+                          name="STREET_NAME"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Latitude]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Latitude]"
+                          name="Latitude"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Longitude]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Longitude]"
+                          name="Longitude"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[WARD_NUM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="WARD_NUM" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ZIP_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[STREET_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="STREET_NUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[STREET_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="STREET_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[Latitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Latitude" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].ExternalColumns[Longitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Longitude" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[WARD_NUM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[WARD_NUM]"
+                          name="WARD_NUM" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ZIP_CODE]"
+                          name="ZIP_CODE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[STREET_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[STREET_NUMBER]"
+                          name="STREET_NUMBER" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[STREET_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[STREET_NAME]"
+                          name="STREET_NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[Latitude]"
+                          name="Latitude" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[Longitude]"
+                          name="Longitude" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into address prod\load data into address prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into address prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[ADDRESS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into address prod\load data into address prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[WARD_NUM]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="WARD_NUM"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[WARD_NUM]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[WARD_NUM]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[ZIP_CODE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="ZIP_CODE"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[ZIP_CODE]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[ZIP_CODE]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[STREET_NUMBER]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="STREET_NUMBER"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[STREET_NUMBER]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NUMBER]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[STREET_NAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="STREET_NAME"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[STREET_NAME]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[STREET_NAME]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[Latitude]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Latitude"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Latitude]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].Columns[Longitude]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Longitude"
+                          externalMetadataColumnId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                          lineageId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output].Columns[Longitude]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[WARD_NUM]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="WARD_NUM" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[ZIP_CODE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="ZIP_CODE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[STREET_NUMBER]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="STREET_NUMBER" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[STREET_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="STREET_NAME" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[Latitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Latitude" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[Longitude]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Longitude" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input].ExternalColumns[ADDRESS_ID]"
+                          dataType="i4"
+                          name="ADDRESS_ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into address prod\load data into address prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into address prod\load data into address prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into address prod\load data into address prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into address prod\load data into address prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into address prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into address prod\load data into address prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into address prod\load data from address dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into date prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{B7AB3D60-BFA7-491D-8153-902B0B437EE8}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into date prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into date prod\load data from date dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from date dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[DATE_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into date prod\load data from date dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Date]"
+                          dataType="dbDate"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Date]"
+                          name="Date"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Day]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Day]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Day]"
+                          name="Day"
+                          precision="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Month]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Month]"
+                          name="Month"
+                          precision="2"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Quarter]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Quarter]"
+                          name="Quarter"
+                          precision="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Year]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Year]"
+                          name="Year"
+                          precision="4"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeek]"
+                          dataType="numeric"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[DayOfTheWeek]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeek]"
+                          name="DayOfTheWeek"
+                          precision="1"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[MonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                          length="50"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[MonthName]"
+                          name="MonthName"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeekName]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[DayOfTheWeekName]"
+                          length="50"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeekName]"
+                          name="DayOfTheWeekName"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Date]"
+                          dataType="dbDate"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Day]"
+                          dataType="numeric"
+                          name="Day"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Month]"
+                          dataType="numeric"
+                          name="Month"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Quarter]"
+                          dataType="numeric"
+                          name="Quarter"
+                          precision="1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[Year]"
+                          dataType="numeric"
+                          name="Year"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[DayOfTheWeek]"
+                          dataType="numeric"
+                          name="DayOfTheWeek"
+                          precision="1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[MonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="MonthName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].ExternalColumns[DayOfTheWeekName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="DayOfTheWeekName" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          dataType="dbDate"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Date]"
+                          name="Date" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Day]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Day]"
+                          name="Day"
+                          precision="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Month]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Month]"
+                          name="Month"
+                          precision="2" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Quarter]"
+                          name="Quarter"
+                          precision="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[Year]"
+                          name="Year"
+                          precision="4" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[DayOfTheWeek]"
+                          dataType="numeric"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[DayOfTheWeek]"
+                          name="DayOfTheWeek"
+                          precision="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[MonthName]"
+                          name="MonthName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[DayOfTheWeekName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[DayOfTheWeekName]"
+                          name="DayOfTheWeekName" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into date prod\load data into date prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into date prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[DATE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into date prod\load data into date prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[Date]"
+                          cachedDataType="dbDate"
+                          cachedName="Date"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Date]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[Day]"
+                          cachedDataType="numeric"
+                          cachedName="Day"
+                          cachedPrecision="2"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Day]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[Month]"
+                          cachedDataType="numeric"
+                          cachedName="Month"
+                          cachedPrecision="2"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Month]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[Quarter]"
+                          cachedDataType="numeric"
+                          cachedName="Quarter"
+                          cachedPrecision="1"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Quarter]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[Year]"
+                          cachedDataType="numeric"
+                          cachedName="Year"
+                          cachedPrecision="4"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[Year]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[DayOfTheWeek]"
+                          cachedDataType="numeric"
+                          cachedName="DayOfTheWeek"
+                          cachedPrecision="1"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[DayOfTheWeek]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeek]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[MonthName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="MonthName"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[MonthName]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].Columns[DayOfTheWeekName]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="DayOfTheWeekName"
+                          externalMetadataColumnId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[DayOfTheWeekName]"
+                          lineageId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output].Columns[DayOfTheWeekName]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Date]"
+                          dataType="dbDate"
+                          name="Date" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Day]"
+                          dataType="numeric"
+                          name="Day"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Month]"
+                          dataType="numeric"
+                          name="Month"
+                          precision="2" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Quarter]"
+                          dataType="numeric"
+                          name="Quarter"
+                          precision="1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[Year]"
+                          dataType="numeric"
+                          name="Year"
+                          precision="4" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[DayOfTheWeek]"
+                          dataType="numeric"
+                          name="DayOfTheWeek"
+                          precision="1" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[MonthName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="MonthName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[DayOfTheWeekName]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="DayOfTheWeekName" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input].ExternalColumns[DATE_ID]"
+                          dataType="i4"
+                          name="DATE_ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into date prod\load data into date prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into date prod\load data into date prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into date prod\load data into date prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into date prod\load data into date prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into date prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into date prod\load data into date prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into date prod\load data from date dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into owner department prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{572874BD-C685-475F-A6CB-97B46646886C}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into owner department prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from owner department dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[OWNER_DEPARTMENT_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output].Columns[DEP_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output].ExternalColumns[DEP_NAME]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output].Columns[DEP_NAME]"
+                          name="DEP_NAME"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output].ExternalColumns[DEP_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DEP_NAME" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[DEP_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[DEP_NAME]"
+                          name="DEP_NAME" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into owner department prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[OWNER_DEPARTMENT]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input].Columns[DEP_NAME]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="DEP_NAME"
+                          externalMetadataColumnId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input].ExternalColumns[DEP_NAME]"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output].Columns[DEP_NAME]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input].ExternalColumns[OWNER_DEPARTMENT_ID]"
+                          dataType="i4"
+                          name="OWNER_DEPARTMENT_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input].ExternalColumns[DEP_NAME]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="DEP_NAME" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into owner department prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into owner department prod\load data into owner department prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into owner department prod\load data from owner department dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into police prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{D9B21FA8-9F8A-4E6E-8125-AA190C63DFE1}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into police prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into police prod\load data from police dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from police dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[POLICE_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into police prod\load data from police dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[District]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[District]"
+                          name="District"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Beat]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[Beat]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Beat]"
+                          name="Beat"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Precints]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[Precints]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Precints]"
+                          name="Precints"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[District]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="District" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[Beat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Beat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].ExternalColumns[Precints]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Precints" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[District]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[District]"
+                          name="District" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[Beat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[Beat]"
+                          name="Beat" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[Precints]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[Precints]"
+                          name="Precints" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into police prod\load data into police prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into police prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[POLICE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into police prod\load data into police prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].Columns[District]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="District"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[District]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].Columns[Beat]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Beat"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[Beat]"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Beat]" />
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].Columns[Precints]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Precints"
+                          externalMetadataColumnId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[Precints]"
+                          lineageId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output].Columns[Precints]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[POLICE_ID]"
+                          dataType="i4"
+                          name="POLICE_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="District" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[Beat]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Beat" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input].ExternalColumns[Precints]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Precints" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into police prod\load data into police prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into police prod\load data into police prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into police prod\load data into police prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into police prod\load data into police prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into police prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into police prod\load data into police prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into police prod\load data from police dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into sr type prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{BF49A2FA-03C8-4F6D-A7DE-7A14D878F540}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into sr type prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from sr type dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[SR_TYPE_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output].Columns[SR_TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output].ExternalColumns[SR_TYPE]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output].Columns[SR_TYPE]"
+                          name="SR_TYPE"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output].ExternalColumns[SR_TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SR_TYPE" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[SR_TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[SR_TYPE]"
+                          name="SR_TYPE" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into sr type prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[SR_TYPE]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input].Columns[SR_TYPE]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="SR_TYPE"
+                          externalMetadataColumnId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input].ExternalColumns[SR_TYPE]"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output].Columns[SR_TYPE]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input].ExternalColumns[SR_TYPE]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="SR_TYPE" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input].ExternalColumns[SR_TYPE_ID]"
+                          dataType="i4"
+                          name="SR_TYPE_ID" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into sr type prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into sr type prod\load data into sr type prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into sr type prod\load data from sr type dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Sequence Container\load data into status prod"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{8F353B19-A588-4BA5-AFEA-C60902422871}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="load data into status prod"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Sequence Container\load data into status prod\load data from status dim"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="load data from status dim"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311].[STATUS_ST]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">0</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into status prod\load data from status dim.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output].Columns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output].Columns[Status]"
+                          name="Status"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output].ExternalColumns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          lineageId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[Status]"
+                          name="Status" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Sequence Container\load data into status prod\load data into status prod"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="load data into status prod"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[311_prod].[STATUS]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Sequence Container\load data into status prod\load data into status prod.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      connectionManagerRefId="Package.ConnectionManagers[192.168.1.23.IDH.SA 1]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input].Columns[Status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="Status"
+                          externalMetadataColumnId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          lineageId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output].Columns[Status]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input].ExternalColumns[STATUS_ID]"
+                          dataType="i4"
+                          name="STATUS_ID" />
+                        <externalMetadataColumn
+                          refId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="Status" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Sequence Container\load data into status prod\load data into status prod.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data into status prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into status prod\load data into status prod.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Sequence Container\load data into status prod\load data into status prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Sequence Container\load data into status prod\load data into status prod.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Sequence Container\load data into status prod.Paths[OLE DB Source Output]"
+                  endId="Package\Sequence Container\load data into status prod\load data into status prod.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Sequence Container\load data into status prod\load data from status dim.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="208.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into address prod"
+          TopLeft="74.269844993292,34.8509343868329" />
+        <NodeLayout
+          Size="193.142857142858,42.2857142857143"
+          Id="Package\Sequence Container\load data into date prod"
+          TopLeft="315.380962491666,35.4161517927849" />
+        <NodeLayout
+          Size="259.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into owner department prod"
+          TopLeft="80.3809562662922,170.503111815311" />
+        <NodeLayout
+          Size="199.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into police prod"
+          TopLeft="373.714297370305,171.633546627215" />
+        <NodeLayout
+          Size="204.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into sr type prod"
+          TopLeft="75.9365117041102,98.1552838534561" />
+        <NodeLayout
+          Size="200.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into status prod"
+          TopLeft="320.380962624121,99.8509360713121" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="662.285714285715,353.714285714286"
+          Size="662.285714285715,396.571428571429"
+          Id="Package\Sequence Container"
+          TopLeft="66.1111128624574,27.1304354856956" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into address prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="208.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into address prod\load data from address dim"
+          TopLeft="299,125" />
+        <NodeLayout
+          Size="208.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into address prod\load data into address prod"
+          TopLeft="562,272" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into address prod.Paths[OLE DB Source Output]"
+          TopLeft="403.285714285714,167.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="263,104.714285714286"
+              Start="0,0"
+              End="263,97.2142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.3571428571429"
+                    Point2="0,52.3571428571429"
+                    Point3="4,52.3571428571429" />
+                  <mssgle:LineSegment
+                    End="259,52.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="259,52.3571428571429"
+                    Point2="263,52.3571428571429"
+                    Point3="263,56.3571428571429" />
+                  <mssgle:LineSegment
+                    End="263,97.2142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into address prod\load data from address dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into address prod\load data into address prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into date prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="193.142857142858,42.2857142857143"
+          Id="Package\Sequence Container\load data into date prod\load data into date prod"
+          TopLeft="586,417" />
+        <NodeLayout
+          Size="193.142857142858,42.2857142857143"
+          Id="Package\Sequence Container\load data into date prod\load data from date dim"
+          TopLeft="298,208" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into date prod.Paths[OLE DB Source Output]"
+          TopLeft="394.571428571429,250.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="288,166.714285714286"
+              Start="0,0"
+              End="288,159.214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,79.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,79.3571428571429"
+                    Point2="0,83.3571428571429"
+                    Point3="4,83.3571428571429" />
+                  <mssgle:LineSegment
+                    End="284,83.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="284,83.3571428571429"
+                    Point2="288,83.3571428571429"
+                    Point3="288,87.3571428571429" />
+                  <mssgle:LineSegment
+                    End="288,159.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into date prod\load data from date dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into date prod\load data into date prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into owner department prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="259.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into owner department prod\load data into owner department prod"
+          TopLeft="720,465" />
+        <NodeLayout
+          Size="259.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into owner department prod\load data from owner department dim"
+          TopLeft="380,171" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into owner department prod.Paths[OLE DB Source Output]"
+          TopLeft="509.714285714286,213.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="340,251.714285714286"
+              Start="0,0"
+              End="340,244.214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,121.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,121.857142857143"
+                    Point2="0,125.857142857143"
+                    Point3="4,125.857142857143" />
+                  <mssgle:LineSegment
+                    End="336,125.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="336,125.857142857143"
+                    Point2="340,125.857142857143"
+                    Point3="340,129.857142857143" />
+                  <mssgle:LineSegment
+                    End="340,244.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into owner department prod\load data from owner department dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into owner department prod\load data into owner department prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into police prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="199.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into police prod\load data into police prod"
+          TopLeft="762,399" />
+        <NodeLayout
+          Size="199.428571428572,42.2857142857143"
+          Id="Package\Sequence Container\load data into police prod\load data from police dim"
+          TopLeft="419,140" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into police prod.Paths[OLE DB Source Output]"
+          TopLeft="518.714285714286,182.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="343,216.714285714286"
+              Start="0,0"
+              End="343,209.214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,104.357142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,104.357142857143"
+                    Point2="0,108.357142857143"
+                    Point3="4,108.357142857143" />
+                  <mssgle:LineSegment
+                    End="339,108.357142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="339,108.357142857143"
+                    Point2="343,108.357142857143"
+                    Point3="343,112.357142857143" />
+                  <mssgle:LineSegment
+                    End="343,209.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into police prod\load data from police dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into police prod\load data into police prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into sr type prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="204.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into sr type prod\load data into sr type prod"
+          TopLeft="715,474" />
+        <NodeLayout
+          Size="204.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into sr type prod\load data from sr type dim"
+          TopLeft="432,277" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into sr type prod.Paths[OLE DB Source Output]"
+          TopLeft="534.285714285714,319.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="283,154.714285714286"
+              Start="0,0"
+              End="283,147.214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,73.3571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,73.3571428571428"
+                    Point2="0,77.3571428571428"
+                    Point3="4,77.3571428571428" />
+                  <mssgle:LineSegment
+                    End="279,77.3571428571428" />
+                  <mssgle:CubicBezierSegment
+                    Point1="279,77.3571428571428"
+                    Point2="283,77.3571428571428"
+                    Point3="283,81.3571428571428" />
+                  <mssgle:LineSegment
+                    End="283,147.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into sr type prod\load data from sr type dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into sr type prod\load data into sr type prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Sequence Container\load data into status prod">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="200.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into status prod\load data into status prod"
+          TopLeft="619,479" />
+        <NodeLayout
+          Size="200.571428571429,42.2857142857143"
+          Id="Package\Sequence Container\load data into status prod\load data from status dim"
+          TopLeft="360,215" />
+        <EdgeLayout
+          Id="Package\Sequence Container\load data into status prod.Paths[OLE DB Source Output]"
+          TopLeft="460.285714285714,257.285714285714">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="259,221.714285714286"
+              Start="0,0"
+              End="259,214.214285714286">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,106.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,106.857142857143"
+                    Point2="0,110.857142857143"
+                    Point3="4,110.857142857143" />
+                  <mssgle:LineSegment
+                    End="255,110.857142857143" />
+                  <mssgle:CubicBezierSegment
+                    Point1="255,110.857142857143"
+                    Point2="259,110.857142857143"
+                    Point3="259,114.857142857143" />
+                  <mssgle:LineSegment
+                    End="259,214.214285714286" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into status prod\load data from status dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Sequence Container\load data into status prod\load data into status prod">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

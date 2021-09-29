@@ -1,0 +1,198 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="8fa9f584-7dff-4f1e-a7e5-103752ae7462" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>POLICE Pr</ID>
+  <Name>POLICE Pr</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5785" scrolltop="-14703" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="15119" y="32158" backcolor="16777215" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001153e0100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="POLICE_pr" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3508" height="2752" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000e0000b40d0000c00a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="311_prod_POLICE_pr" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-5785</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-14703</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="f0e224d8-3cc1-4211-b555-fd43e6c9b42e">
+    <DataSourceViewID>IDH</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="2c997515-74f8-41c5-8d2d-4fc3bc52a7aa">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="d7a84abe-120d-489d-8be1-a1c106e45bcd">
+      <ID>ID POLICE</ID>
+      <Name>POLICE</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3c01ae95-5cb7-47ea-9a40-f5155d6ace0b">
+          <DataType>Integer</DataType>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8e5efd5f-cae2-4309-9699-2d449c466904">
+            <TableID>_x0033_11_prod_POLICE_pr</TableID>
+            <ColumnID>ID_POLICE</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <NameColumn dwd:design-time-name="54a5d0d1-fa6a-4aac-8171-6ebfe816d5dc">
+        <DataType>WChar</DataType>
+        <Source xsi:type="ColumnBinding" dwd:design-time-name="9b507995-a131-48fb-afc5-e04bfd557a93">
+          <TableID>_x0033_11_prod_POLICE_pr</TableID>
+          <ColumnID>District</ColumnID>
+        </Source>
+      </NameColumn>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="291d1a00-941e-4c40-a508-6547baeb7f6d">
+          <AttributeID>POLICE SECTOR</AttributeID>
+          <Name>POLICE SECTOR</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="b85a8e99-2f98-4d0f-a2ae-8a5b8d58627c">
+          <AttributeID>Beat</AttributeID>
+          <Name>Beat</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="6e237a1e-08b8-4b6b-8499-61e69f4c9b32">
+          <AttributeID>Precints</AttributeID>
+          <Name>Precints</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="0a7660ac-8899-465a-8da5-a15d8377f874">
+      <ID>POLICE SECTOR</ID>
+      <Name>POLICE SECTOR</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f521c4e1-020b-4d61-a499-cfcb9eb9180f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b7433b50-e7fd-46bd-9063-6e3790aff880">
+            <TableID>_x0033_11_prod_POLICE_pr</TableID>
+            <ColumnID>POLICE_SECTOR</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="81af4174-29b7-4b6d-a5a0-126db7aae274">
+      <ID>Beat</ID>
+      <Name>Beat</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="576ac726-33bd-4879-af10-41266a0f7d86">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="8fd037d2-a51d-41b5-984d-b5808f64ba2a">
+            <TableID>_x0033_11_prod_POLICE_pr</TableID>
+            <ColumnID>Beat</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d0b4cb0a-8809-4f4c-99e0-f96dbd0207f4">
+      <ID>Precints</ID>
+      <Name>Precints</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="efee2d00-c765-4109-ace0-f822516c5e5f">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="471bcfaf-faa6-4211-a08c-2fec50712702">
+            <TableID>_x0033_11_prod_POLICE_pr</TableID>
+            <ColumnID>Precints</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="2bde2b68-6e1f-4d64-bec6-641bf210731b">
+      <ID>Hierarchy</ID>
+      <Name>Hierarchy police</Name>
+      <Levels>
+        <Level dwd:design-time-name="9943ecbe-4628-484c-99ac-02fa47a60571">
+          <ID>POLICE SECTOR</ID>
+          <Name>POLICE SECTOR</Name>
+          <SourceAttributeID>POLICE SECTOR</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="3cb60f19-f3d3-4312-b440-18fe1f1242e0">
+          <ID>POLICE</ID>
+          <Name>POLICE</Name>
+          <SourceAttributeID>ID POLICE</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="34f0acaf-692b-4082-82dc-c35476a167ee">
+          <ID>Beat</ID>
+          <Name>Beat</Name>
+          <SourceAttributeID>Beat</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="f1fd5e14-6b70-452b-aecd-f3b8b313072e">
+          <ID>Precints</ID>
+          <Name>Precints</Name>
+          <SourceAttributeID>Precints</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

@@ -1,0 +1,767 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/11/2021 6:38:30 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BE2VHDL"
+  DTS:CreatorName="DESKTOP-BE2VHDL\MT"
+  DTS:DTSID="{E2531803-2155-40CE-B021-92407329F63B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.167"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{44356E46-9218-4DA2-B873-DFAF51B7C872}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FF9A4619-5C0D-4188-B4A6-E166DC6656E2}"
+      DTS:ObjectName="192.168.1.21.IDH.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=192.168.1.21;User ID=SA;Initial Catalog=IDH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6cYJVuZEskiTIh1Y7kQtHAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC58mIsKh3DCxO4madIk9KtkBgKUn5SScclJt848vtKUwAAAAAOgAAAAAIAACAAAADL5monvb90f5/PNjW4jLZpuR08Zd20y1yrDEvOhCne4CAAAAAbfGS9QehS5SKcYaawpj9TRt9Oh1PZRj0nrSFf5PQ1n0AAAACgalHdzmCECXANdaZyGef/2gopjQlzIDncgpfnUmQsf7Pw/tpD9QTCAhRPddEMpLp5JVFxHL00hmKKKzCA8xED</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\clear data from repeated dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A8064FA0-9E8B-43F9-86DC-CCF47065E3A7}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="clear data from repeated dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{FF9A4619-5C0D-4188-B4A6-E166DC6656E2}"
+          SQLTask:SqlStatementSource="TRUNCATE table [311].DUPLICATE_ST; " xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\load data into repeated dim"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2498EB27-F90F-4116-9954-E2BF031094B2}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load data into repeated dim"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load data into repeated dim\load data from source data staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="load data from source data staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[311].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data into repeated dim\load data from source data staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].Columns[DUPLICATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[DUPLICATE]"
+                      length="200"
+                      lineageId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].Columns[DUPLICATE]"
+                      name="DUPLICATE"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[SR_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[SR_SHORT_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_SHORT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[OWNER_DEPARTMENT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="OWNER_DEPARTMENT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CREATED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LAST_MODIFIED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="LAST_MODIFIED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CLOSED_DATE]"
+                      dataType="dbTimeStamp"
+                      name="CLOSED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_ADDRESS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_ADDRESS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CITY" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ZIP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_DIRECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_DIRECTION" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[DUPLICATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DUPLICATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LEGACY_RECORD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LEGACY_RECORD" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LEGACY_SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LEGACY_SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[PARENT_SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="PARENT_SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[COMMUNITY_AREA]"
+                      dataType="i4"
+                      name="COMMUNITY_AREA" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[WARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="WARD" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[ELECTRICAL_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ELECTRICAL_DISTRICT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[ELECTRICITY_GRID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ELECTRICITY_GRID" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_SECTOR]"
+                      dataType="i4"
+                      name="POLICE_SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_DISTRICT]"
+                      dataType="i4"
+                      name="POLICE_DISTRICT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_BEAT]"
+                      dataType="i4"
+                      name="POLICE_BEAT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[PRECINCT]"
+                      dataType="i4"
+                      name="PRECINCT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[SANITATION_DIVISION_DAYS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SANITATION_DIVISION_DAYS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_HOUR]"
+                      dataType="i4"
+                      name="CREATED_HOUR" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_DAY_OF_WEEK]"
+                      dataType="i4"
+                      name="CREATED_DAY_OF_WEEK" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_MONTH]"
+                      dataType="i4"
+                      name="CREATED_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_QUARTER]"
+                      dataType="numeric"
+                      name="CREATED_QUARTER"
+                      precision="1" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_YEAR]"
+                      dataType="numeric"
+                      name="CREATED_YEAR"
+                      precision="4" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[DATE]"
+                      dataType="dbDate"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[X_COORDINATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="X_COORDINATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[Y_COORDINATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Y_COORDINATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LATITUDE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LONGITUDE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LOCATION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[DUPLICATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Error Output].Columns[DUPLICATE]"
+                      name="DUPLICATE" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into repeated dim\load data into repeated dim"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="load data into repeated dim"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[311].[DUPLICATE_ST]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data into repeated dim\load data into repeated dim.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input].Columns[DUPLICATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DUPLICATE"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input].ExternalColumns[REPEATED]"
+                      lineageId="Package\load data into repeated dim\Sort.Outputs[Sort Output].Columns[DUPLICATE]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input].ExternalColumns[REPEATED]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="REPEATED" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into repeated dim\load data into repeated dim.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data into repeated dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into repeated dim\load data into repeated dim.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into repeated dim\load data into repeated dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into repeated dim\load data into repeated dim.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into repeated dim\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\load data into repeated dim\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into repeated dim\Sort.Inputs[Sort Input].Columns[DUPLICATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="DUPLICATE"
+                      lineageId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].Columns[DUPLICATE]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into repeated dim\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into repeated dim\Sort.Outputs[Sort Output].Columns[DUPLICATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into repeated dim\Sort.Outputs[Sort Output].Columns[DUPLICATE]"
+                      name="DUPLICATE"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output].Columns[DUPLICATE]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load data into repeated dim.Paths[OLE DB Source Output]"
+              endId="Package\load data into repeated dim\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\load data into repeated dim\load data from source data staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\load data into repeated dim.Paths[Sort Output]"
+              endId="Package\load data into repeated dim\load data into repeated dim.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\load data into repeated dim\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{39D4EF35-909B-4487-BA2F-D6666EDC4AB1}"
+      DTS:From="Package\clear data from repeated dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\load data into repeated dim" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="216.571428571429,42.2857142857143"
+          Id="Package\clear data from repeated dim"
+          TopLeft="171.66667121428,128.304351151102" />
+        <NodeLayout
+          Size="209.714285714286,42.2857142857143"
+          Id="Package\load data into repeated dim"
+          TopLeft="355.000009404289,272.43478966886" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="279.952385499995,170.590065436817">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="179.904766761437,101.844724232044"
+              Start="0,0"
+              End="179.904766761437,94.3447242320437">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.9223621160219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,46.9223621160219"
+                    Point2="0,50.9223621160219"
+                    Point3="4,50.9223621160219" />
+                  <mssgle:LineSegment
+                    End="175.904766761437,50.9223621160219" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.904766761437,50.9223621160219"
+                    Point2="179.904766761437,50.9223621160219"
+                    Point3="179.904766761437,54.9223621160219" />
+                  <mssgle:LineSegment
+                    End="179.904766761437,94.3447242320437" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load data into repeated dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="209.714285714286,42.2857142857143"
+          Id="Package\load data into repeated dim\load data into repeated dim"
+          TopLeft="434.444455953292,325.000008422396" />
+        <NodeLayout
+          Size="244,42.2857142857143"
+          Id="Package\load data into repeated dim\load data from source data staging"
+          TopLeft="205.555561000918,114.173916002302" />
+        <NodeLayout
+          Size="98.8571428571429,42.2857142857143"
+          Id="Package\load data into repeated dim\Sort"
+          TopLeft="286.111118690467,218.739136103421" />
+        <EdgeLayout
+          Id="Package\load data into repeated dim.Paths[Sort Output]"
+          TopLeft="335.539690119039,261.024850389135">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="203.761908691396,63.9751580332602"
+              Start="0,0"
+              End="203.761908691396,56.4751580332602">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9875790166301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9875790166301"
+                    Point2="0,31.9875790166301"
+                    Point3="4,31.9875790166301" />
+                  <mssgle:LineSegment
+                    End="199.761908691396,31.9875790166301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="199.761908691396,31.9875790166301"
+                    Point2="203.761908691396,31.9875790166301"
+                    Point3="203.761908691396,35.9875790166301" />
+                  <mssgle:LineSegment
+                    End="203.761908691396,56.4751580332602" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into repeated dim.Paths[OLE DB Source Output]"
+          TopLeft="331.547625559979,156.459630288017">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.2795058154043"
+              Start="0,0"
+              End="0,54.7795058154043">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,54.7795058154043" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data into repeated dim\load data into repeated dim">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data into repeated dim\load data from source data staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

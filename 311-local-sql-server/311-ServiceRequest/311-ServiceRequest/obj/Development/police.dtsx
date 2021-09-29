@@ -1,0 +1,1894 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2021 6:54:19 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BE2VHDL"
+  DTS:CreatorName="DESKTOP-BE2VHDL\MT"
+  DTS:DTSID="{317CD027-9001-4CEC-BDBD-C0B2C7954503}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{2E046817-1BAE-4E7A-889C-56BC88AF61EB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D830B44E-9F67-4FD7-9FE9-86A03CD7FE79}"
+      DTS:ObjectName="192.168.1.21.IDH.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.1.21;User ID=SA;Initial Catalog=IDH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6cYJVuZEskiTIh1Y7kQtHAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAPRFwT5/bNCLLHuDfgzKrxWRgr42Ztb2Wrb0/ytT9W6AAAAAAOgAAAAAIAACAAAAC7zDBFUU0EFaZkNOhp24UznB5cx7LwvCrjzVn3MhXC2iAAAADVWEIwkBhO9DPh/nX+OXQiTKNPT8rbqJI7LuFpc9rB4EAAAACc9iR2K7wdkAwaENM584ivivfPRVCj5p8NdoQgwvzGBRY41MWxfNj4apXe6tWP9ds5XfMAFMSZDz2XzlRAyLbR</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\clear data from police dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{19F67A54-741F-4453-B190-DE7E2B49652E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="clear data from police dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D830B44E-9F67-4FD7-9FE9-86A03CD7FE79}"
+          SQLTask:SqlStatementSource="truncate table [311].POLICE_ST;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\load data into police dim"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{09B61FD7-3B4D-42C0-BFE6-EBAE884B07F1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load data into police dim"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load data into police dim\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]" />
+                    <inputColumn
+                      refId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]" />
+                    <inputColumn
+                      refId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Conditional Split.Outputs[NO POLICE_BEAT]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NO POLICE_BEAT"
+                  synchronousInputId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]} == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">POLICE_BEAT == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Conditional Split.Outputs[NO POLICE_DISTRICT]"
+                  description="Output 2 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NO POLICE_DISTRICT"
+                  synchronousInputId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]} == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">POLICE_DISTRICT == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Conditional Split.Outputs[NO PRECINCT]"
+                  description="Output 3 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="NO PRECINCT"
+                  synchronousInputId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">#{Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]} == ""</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">PRECINCT == ""</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">2</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Conditional Split.Outputs[WITH VALUE]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="WITH VALUE"
+                  synchronousInputId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Derived Column.Inputs[Derived Column Input].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"NULL"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"NULL"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\Derived Column 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Derived Column 1.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Derived Column 1.Inputs[Derived Column Input].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"NULL"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"NULL"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column 1.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column 1.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\Derived Column 2"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column 2"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Derived Column 2.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Derived Column 2.Inputs[Derived Column Input].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"NULL"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"NULL"</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column 2.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\load data into police dim\Derived Column 2.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\load data from Source Data Staging"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="load data from Source Data Staging"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[311].[Source_Data_Staging]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data into police dim\load data from Source Data Staging.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_BEAT]"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]"
+                      name="POLICE_BEAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_DISTRICT]"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]"
+                      name="POLICE_DISTRICT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[PRECINCT]"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]"
+                      name="PRECINCT"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[SR_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[SR_SHORT_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SR_SHORT_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[OWNER_DEPARTMENT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="OWNER_DEPARTMENT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STATUS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STATUS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CREATED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LAST_MODIFIED_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LAST_MODIFIED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CLOSED_DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CLOSED_DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_ADDRESS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_ADDRESS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CITY]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CITY" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[ZIP_CODE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ZIP_CODE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_DIRECTION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_DIRECTION" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_NAME" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[STREET_TYPE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="STREET_TYPE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[DUPLICATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="DUPLICATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LEGACY_RECORD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LEGACY_RECORD" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LEGACY_SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LEGACY_SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[PARENT_SR_NUMBER]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="PARENT_SR_NUMBER" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[COMMUNITY_AREA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="COMMUNITY_AREA" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[WARD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="WARD" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[ELECTRICAL_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ELECTRICAL_DISTRICT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[ELECTRICITY_GRID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="ELECTRICITY_GRID" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_SECTOR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="POLICE_SECTOR" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="POLICE_DISTRICT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[POLICE_BEAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="POLICE_BEAT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[PRECINCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="PRECINCT" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[SANITATION_DIVISION_DAYS]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="SANITATION_DIVISION_DAYS" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_HOUR]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CREATED_HOUR" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_DAY_OF_WEEK]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CREATED_DAY_OF_WEEK" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[CREATED_MONTH]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="CREATED_MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[X_COORDINATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="X_COORDINATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[Y_COORDINATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Y_COORDINATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LATITUDE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LONGITUDE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].ExternalColumns[LOCATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="LOCATION" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[POLICE_BEAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[POLICE_BEAT]"
+                      name="POLICE_BEAT" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[POLICE_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[POLICE_DISTRICT]"
+                      name="POLICE_DISTRICT" />
+                    <outputColumn
+                      refId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[PRECINCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Error Output].Columns[PRECINCT]"
+                      name="PRECINCT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[311].[POLICE_ST]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data into police dim\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat]"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_BEAT]" />
+                    <inputColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_DISTRICT]" />
+                    <inputColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Precints]"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[PRECINCT]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[District]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="District" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Beat]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Beat" />
+                    <externalMetadataColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Precints]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="Precints" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data into police dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data into police dim\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Sort.Inputs[Sort Input].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Sort.Inputs[Sort Input].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Sort.Inputs[Sort Input].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_BEAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_BEAT]"
+                      name="POLICE_BEAT"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[POLICE_DISTRICT]"
+                      name="POLICE_DISTRICT"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[PRECINCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Sort.Outputs[Sort Output].Columns[PRECINCT]"
+                      name="PRECINCT"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data into police dim\Union All"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Union All;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combines rows from multiple data flows without sorting. For example, add rows back to a data flow after correction of errors. If sorting is important, we recommend using the Merge transformation."
+              name="Union All"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\load data into police dim\Union All.Inputs[Union All Input 1]"
+                  name="Union All Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 1].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 1].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 1].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\load data into police dim\Union All.Inputs[Union All Input 2]"
+                  hasSideEffects="true"
+                  name="Union All Input 2">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 2].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 2].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 2].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\load data into police dim\Union All.Inputs[Union All Input 3]"
+                  hasSideEffects="true"
+                  name="Union All Input 3">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 3].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 3].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 3].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\load data into police dim\Union All.Inputs[Union All Input 4]"
+                  hasSideEffects="true"
+                  name="Union All Input 4">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 4].Columns[POLICE_BEAT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_BEAT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_BEAT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 4].Columns[POLICE_DISTRICT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="POLICE_DISTRICT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[POLICE_DISTRICT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\load data into police dim\Union All.Inputs[Union All Input 4].Columns[PRECINCT]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="PRECINCT"
+                      lineageId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output].Columns[PRECINCT]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Output column lineage ID"
+                          name="OutputColumnLineageID">#{Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\load data into police dim\Union All.Inputs[Union All Input 5]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Union All Input 5">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data into police dim\Union All.Outputs[Union All Output 1]"
+                  name="Union All Output 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_BEAT]"
+                      name="POLICE_BEAT" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[POLICE_DISTRICT]"
+                      name="POLICE_DISTRICT" />
+                    <outputColumn
+                      refId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\load data into police dim\Union All.Outputs[Union All Output 1].Columns[PRECINCT]"
+                      name="PRECINCT" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load data into police dim.Paths[Derived Column Output]"
+              endId="Package\load data into police dim\Union All.Inputs[Union All Input 2]"
+              name="Derived Column Output"
+              startId="Package\load data into police dim\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\load data into police dim.Paths[Derived Column Output1]"
+              endId="Package\load data into police dim\Union All.Inputs[Union All Input 3]"
+              name="Derived Column Output"
+              startId="Package\load data into police dim\Derived Column 1.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\load data into police dim.Paths[Derived Column Output2]"
+              endId="Package\load data into police dim\Union All.Inputs[Union All Input 4]"
+              name="Derived Column Output"
+              startId="Package\load data into police dim\Derived Column 2.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\load data into police dim.Paths[NO POLICE_BEAT]"
+              endId="Package\load data into police dim\Derived Column 1.Inputs[Derived Column Input]"
+              name="NO POLICE_BEAT"
+              startId="Package\load data into police dim\Conditional Split.Outputs[NO POLICE_BEAT]" />
+            <path
+              refId="Package\load data into police dim.Paths[NO POLICE_DISTRICT]"
+              endId="Package\load data into police dim\Derived Column 2.Inputs[Derived Column Input]"
+              name="NO POLICE_DISTRICT"
+              startId="Package\load data into police dim\Conditional Split.Outputs[NO POLICE_DISTRICT]" />
+            <path
+              refId="Package\load data into police dim.Paths[NO PRECINCT]"
+              endId="Package\load data into police dim\Derived Column.Inputs[Derived Column Input]"
+              name="NO PRECINCT"
+              startId="Package\load data into police dim\Conditional Split.Outputs[NO PRECINCT]" />
+            <path
+              refId="Package\load data into police dim.Paths[OLE DB Source Output]"
+              endId="Package\load data into police dim\Conditional Split.Inputs[Conditional Split Input]"
+              name="OLE DB Source Output"
+              startId="Package\load data into police dim\load data from Source Data Staging.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\load data into police dim.Paths[Sort Output]"
+              endId="Package\load data into police dim\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Sort Output"
+              startId="Package\load data into police dim\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\load data into police dim.Paths[Union All Output 1]"
+              endId="Package\load data into police dim\Sort.Inputs[Sort Input]"
+              name="Union All Output 1"
+              startId="Package\load data into police dim\Union All.Outputs[Union All Output 1]" />
+            <path
+              refId="Package\load data into police dim.Paths[WITH VALUE]"
+              endId="Package\load data into police dim\Union All.Inputs[Union All Input 1]"
+              name="WITH VALUE"
+              startId="Package\load data into police dim\Conditional Split.Outputs[WITH VALUE]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{04F54D40-E463-43C4-8A15-64A78D068981}"
+      DTS:From="Package\clear data from police dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\load data into police dim" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202.285714285715,42.2857142857143"
+          Id="Package\clear data from police dim"
+          TopLeft="147.777781692552,88.7391327344628" />
+        <NodeLayout
+          Size="195.428571428572,42.2857142857143"
+          Id="Package\load data into police dim"
+          TopLeft="305.000008079741,188.782613587965" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="248.920638835409,131.024847020177">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="153.793654958617,57.7577665677884"
+              Start="0,0"
+              End="153.793654958617,50.2577665677884">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.8788832838942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.8788832838942"
+                    Point2="0,28.8788832838942"
+                    Point3="4,28.8788832838942" />
+                  <mssgle:LineSegment
+                    End="149.793654958617,28.8788832838942" />
+                  <mssgle:CubicBezierSegment
+                    Point1="149.793654958617,28.8788832838942"
+                    Point2="153.793654958617,28.8788832838942"
+                    Point3="153.793654958617,32.8788832838942" />
+                  <mssgle:LineSegment
+                    End="153.793654958617,50.2577665677884" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load data into police dim">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="248,42.2857142857143"
+          Id="Package\load data into police dim\load data from Source Data Staging"
+          TopLeft="110.000002914005,50.3043491297273" />
+        <NodeLayout
+          Size="171.428571428572,42.2857142857143"
+          Id="Package\load data into police dim\OLE DB Destination"
+          TopLeft="393.333343753109,500.217404267513" />
+        <NodeLayout
+          Size="155.428571428572,42.2857142857143"
+          Id="Package\load data into police dim\Conditional Split"
+          TopLeft="156.666670816916,127.73913374515" />
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[OLE DB Source Output]"
+          TopLeft="234.190479722603,92.5900634154416">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,35.1490703297087"
+              Start="0,0"
+              End="0,27.6490703297087">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.6490703297087" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.285714285715,42.2857142857143"
+          Id="Package\load data into police dim\Derived Column"
+          TopLeft="31.111111935274,235.130440876029" />
+        <NodeLayout
+          Size="163.428571428572,42.2857142857143"
+          Id="Package\load data into police dim\Derived Column 1"
+          TopLeft="330.000008742015,234.000006064125" />
+        <NodeLayout
+          Size="163.428571428572,42.2857142857143"
+          Id="Package\load data into police dim\Derived Column 2"
+          TopLeft="507.222235659022,233.434788658173" />
+        <NodeLayout
+          Size="121.142857142858,42.2857142857143"
+          Id="Package\load data into police dim\Union All"
+          TopLeft="218.888894687464,331.354045528352" />
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[NO PRECINCT]"
+          TopLeft="197.523813674059,170.024848030865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-89.2698445959278,65.1055928451644"
+              Start="0,0"
+              End="-89.2698445959278,57.6055928451644">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4339753659241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4339753659241"
+                    Point2="0,22.4339753659241"
+                    Point3="-4,22.4339753659241" />
+                  <mssgle:LineSegment
+                    End="-85.2698445959278,22.4339753659241" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-85.2698445959278,22.4339753659241"
+                    Point2="-89.2698445959278,22.4339753659241"
+                    Point3="-89.2698445959278,26.4339753659241" />
+                  <mssgle:LineSegment
+                    End="-89.2698445959278,57.6055928451644" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-76.5036332354639,27.4339753659241,63.737421875,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[NO POLICE_BEAT]"
+          TopLeft="234.380956531202,170.024848030865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="177.333337925099,63.9751580332603"
+              Start="0,0"
+              End="177.333337925099,56.4751580332603">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,27.9875790166301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.9875790166301"
+                    Point2="0,31.9875790166301"
+                    Point3="4,31.9875790166301" />
+                  <mssgle:LineSegment
+                    End="173.333337925099,31.9875790166301" />
+                  <mssgle:CubicBezierSegment
+                    Point1="173.333337925099,31.9875790166301"
+                    Point2="177.333337925099,31.9875790166301"
+                    Point3="177.333337925099,35.9875790166301" />
+                  <mssgle:LineSegment
+                    End="177.333337925099,56.4751580332603" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="48.7329580250493,36.9875790166301,79.867421875,10.88671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[NO POLICE_DISTRICT]"
+          TopLeft="271.238099388345,170.024848030865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="317.698421984963,63.4099406273082"
+              Start="0,0"
+              End="317.698421984963,55.9099406273082">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.8496903848315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.8496903848315"
+                    Point2="0,21.8496903848315"
+                    Point3="4,21.8496903848315" />
+                  <mssgle:LineSegment
+                    End="313.698421984963,21.8496903848315" />
+                  <mssgle:CubicBezierSegment
+                    Point1="313.698421984963,21.8496903848315"
+                    Point2="317.698421984963,21.8496903848315"
+                    Point3="317.698421984963,25.8496903848315" />
+                  <mssgle:LineSegment
+                    End="317.698421984963,55.9099406273082" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="108.730500054982,26.8496903848315,100.237421875,10.88671875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[WITH VALUE]"
+          TopLeft="219.638099388345,170.024848030865">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="48.5079381562624,161.329197497488"
+              Start="0,0"
+              End="48.5079381562624,153.829197497488">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,76.5198433545681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,76.5198433545681"
+                    Point2="0,80.5198433545681"
+                    Point3="4,80.5198433545681" />
+                  <mssgle:LineSegment
+                    End="44.5079381562624,80.5198433545681" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.5079381562624,80.5198433545681"
+                    Point2="48.5079381562624,80.5198433545681"
+                    Point3="48.5079381562624,84.5198433545681" />
+                  <mssgle:LineSegment
+                    End="48.5079381562624,153.829197497488" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-5.31415592186878,85.5198433545681,59.13625,9.421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[Derived Column Output]"
+          TopLeft="108.253969078131,277.416155161743">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="137.263497037905,53.9378903666091"
+              Start="0,0"
+              End="137.263497037905,46.4378903666091">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.4666866242501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.4666866242501"
+                    Point2="0,37.4666866242501"
+                    Point3="4,37.4666866242501" />
+                  <mssgle:LineSegment
+                    End="133.263497037905,37.4666866242501" />
+                  <mssgle:CubicBezierSegment
+                    Point1="133.263497037905,37.4666866242501"
+                    Point2="137.263497037905,37.4666866242501"
+                    Point3="137.263497037905,41.4666866242501" />
+                  <mssgle:LineSegment
+                    End="137.263497037905,46.4378903666091" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[Derived Column Output1]"
+          TopLeft="411.7142944563,276.285720349839">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-120.939685483122,55.0683251785131"
+              Start="0,0"
+              End="-120.939685483122,47.5683251785131">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.3706684127076" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.3706684127076"
+                    Point2="0,30.3706684127076"
+                    Point3="-4,30.3706684127076" />
+                  <mssgle:LineSegment
+                    End="-116.939685483122,30.3706684127076" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-116.939685483122,30.3706684127076"
+                    Point2="-120.939685483122,30.3706684127076"
+                    Point3="-120.939685483122,34.3706684127076" />
+                  <mssgle:LineSegment
+                    End="-120.939685483122,47.5683251785131" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[Derived Column Output2]"
+          TopLeft="588.936521373308,275.720502943887">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-275.533340971558,55.6335425844652"
+              Start="0,0"
+              End="-275.533340971558,48.1335425844652">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.6445315462209" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,34.6445315462209"
+                    Point2="0,38.6445315462209"
+                    Point3="-4,38.6445315462209" />
+                  <mssgle:LineSegment
+                    End="-271.533340971558,38.6445315462209" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-271.533340971558,38.6445315462209"
+                    Point2="-275.533340971558,38.6445315462209"
+                    Point3="-275.533340971558,42.6445315462209" />
+                  <mssgle:LineSegment
+                    End="-275.533340971558,48.1335425844652" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="98.8571428571429,42.2857142857143"
+          Id="Package\load data into police dim\Sort"
+          TopLeft="256.666673466011,412.000006737916" />
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[Union All Output 1]"
+          TopLeft="279.460323258893,373.639759814067">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="26.6349216356901,38.3602469238499"
+              Start="0,0"
+              End="26.6349216356901,30.8602469238499">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.1801234619249" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.1801234619249"
+                    Point2="0,19.180123461925"
+                    Point3="4,19.180123461925" />
+                  <mssgle:LineSegment
+                    End="22.6349216356901,19.180123461925" />
+                  <mssgle:CubicBezierSegment
+                    Point1="22.6349216356901,19.180123461925"
+                    Point2="26.6349216356901,19.180123461925"
+                    Point3="26.6349216356901,23.180123461925" />
+                  <mssgle:LineSegment
+                    End="26.6349216356901,30.8602469238499" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\load data into police dim.Paths[Sort Output]"
+          TopLeft="306.095244894583,454.285721023631">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="172.952384572811,45.9316832438824"
+              Start="0,0"
+              End="172.952384572811,38.4316832438824">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.9658416219412" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.9658416219412"
+                    Point2="0,22.9658416219412"
+                    Point3="4,22.9658416219412" />
+                  <mssgle:LineSegment
+                    End="168.952384572811,22.9658416219412" />
+                  <mssgle:CubicBezierSegment
+                    Point1="168.952384572811,22.9658416219412"
+                    Point2="172.952384572811,22.9658416219412"
+                    Point3="172.952384572811,26.9658416219412" />
+                  <mssgle:LineSegment
+                    End="172.952384572811,38.4316832438824" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data into police dim\load data from Source Data Staging">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data into police dim\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

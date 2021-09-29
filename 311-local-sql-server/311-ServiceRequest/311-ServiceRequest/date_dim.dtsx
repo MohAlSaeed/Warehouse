@@ -1,0 +1,140 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/4/2021 11:58:33 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-BE2VHDL"
+  DTS:CreatorName="DESKTOP-BE2VHDL\MT"
+  DTS:DTSID="{E63BC463-046A-478E-80BD-28694E867813}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{92344222-E9F8-4AAE-A362-AE12C797DC75}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[192.168.1.21.IDH.SA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{8552AAC4-2655-4868-A276-E229F85DB5C5}"
+      DTS:ObjectName="192.168.1.21.IDH.SA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=192.168.1.21;User ID=SA;Initial Catalog=IDH;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA6cYJVuZEskiTIh1Y7kQtHAAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAB7F+MO3HYZSYUbw5RaLSQAHVIzVLltuop0FuYcVjcopwAAAAAOgAAAAAIAACAAAACwI6mFhVJZzJ2pSpwEVdkixXG1M2k3OL2reI3+w3NAKCAAAAB5NcLdcypn7LGJotR43UFuGytQweGK4gWccFRC/GW9UkAAAADuVtrfqUmFq/W/PWuqvCpM/6xy1oXWAbn/N3vzyV0n/3aBPxGzcKrfbeYf9IkYO5F1QbL/tvl+2mVMjTJqw90F</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ADD data into date dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{C132B299-7D11-4C3A-83E4-29EB0F0FBDDB}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ADD data into date dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8552AAC4-2655-4868-A276-E229F85DB5C5}"
+          SQLTask:SqlStatementSource="exec [311].[InsertTime]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\clear data from date dim"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{AE4017BD-EA97-4894-B0D0-241DD95EADD5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="clear data from date dim"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{8552AAC4-2655-4868-A276-E229F85DB5C5}"
+          SQLTask:SqlStatementSource="truncate table [311].DATE_ST;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{71C0361C-F9A1-42D8-98AE-12E6340E09E3}"
+      DTS:From="Package\clear data from date dim"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\ADD data into date dim" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="190.285714285715,42.2857142857143"
+          Id="Package\ADD data into date dim"
+          TopLeft="338.888897866379,218.173918697469" />
+        <NodeLayout
+          Size="196,42.2857142857143"
+          Id="Package\clear data from date dim"
+          TopLeft="166.111115511553,100.043480853503" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="264.111115511553,142.329195139217">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="169.920639497683,75.8447235582521"
+              Start="0,0"
+              End="169.920639497683,68.3447235582521">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.9223617791261" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.9223617791261"
+                    Point2="0,37.9223617791261"
+                    Point3="4,37.9223617791261" />
+                  <mssgle:LineSegment
+                    End="165.920639497683,37.9223617791261" />
+                  <mssgle:CubicBezierSegment
+                    Point1="165.920639497683,37.9223617791261"
+                    Point2="169.920639497683,37.9223617791261"
+                    Point3="169.920639497683,41.9223617791261" />
+                  <mssgle:LineSegment
+                    End="169.920639497683,68.3447235582521" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
